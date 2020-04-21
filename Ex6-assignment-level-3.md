@@ -24,6 +24,10 @@ let b = y;
 ```
 
 Answer:
+x=10
+y="abc"
+a=10
+b="abc"
 
 ---
 
@@ -40,6 +44,11 @@ b = "def";
 
 Answer:
 
+x=10
+y="abc"
+a=5
+b="def"
+
 ---
 
 3. What will be the value of `arr` and `arrCopy`.
@@ -48,6 +57,8 @@ Answer:
 var arr = [1];
 var arrCopy = arr;
 arr.push(2);
+//arr =[1,2]
+//arrCopy = [1,2]
 ```
 
 Answer:
@@ -63,7 +74,7 @@ let arr = ["Hi"];
 let arr2 = arr;
 ```
 
-- `[10] === [10]`
+- `[10] === [10]` // values are same
 - What is the value of obj? // answer
 - `obj == newObj`
 - `obj === newObj`
@@ -83,8 +94,8 @@ function personDetails(person) {
 }
 var person1 = { name: "Alex", age: 30 };
 var person2 = personDetails(person1);
-console.log(person1);
-console.log(person2);
+console.log(person1); //{name: "Alex", age: 25} re-assigned due to call by reference 
+console.log(person2); //{name: "John", age: 50} re-assigned due to call by reference
 ```
 
 ```js
@@ -94,8 +105,8 @@ var user = {
 };
 user.brothers = brothers;
 brothers.push("Robb");
-console.log(user.brothers === brothers); //1. output
-console.log(brothers.length === brothers.length); //2. output
+console.log(user.brothers === brothers); //1. output :true
+console.log(brothers.length === brothers.length); //2. output : true
 ```
 
 ## writeCode
@@ -108,6 +119,8 @@ let charactor = {
   sisters: 1,
   brothers: 4
 };
+
+let copy =Object.assign({}, charactor);
 ```
 
 ## writeTextAnswer
@@ -132,16 +145,16 @@ let user3 = {
   house: "Stark",
   brothers: ["John", "Bran", "Robb"]
 };
-user.house === user2.house; // output:
-user.house == user2.house; // output:
-user.brothers === user2.brothers; // output:
-user.brothers == user2.brothers; // output:
-user.name == user2.name; // output:
-user.name === user2.name; // output:
-user.brothers == user3.brothers; // output:
-user.brothers === user3.brothers; // output:
-user.house === user2.house; // output
-user.house === user3.house; // output
-user.brothers[0] === user2.brothers[0]; // output
-user.brothers[0] === user3.brothers[0]; // output
+user.house === user2.house; // output: true
+user.house == user2.house; // output: true
+user.brothers === user2.brothers; // output: true
+user.brothers == user2.brothers; // output: true
+user.name == user2.name; // output: true
+user.name === user2.name; // output: true
+user.brothers == user3.brothers; // output: false
+user.brothers === user3.brothers; // output: false
+user.house === user2.house; // output : true
+user.house === user3.house; // output :true
+user.brothers[0] === user2.brothers[0]; // output :true
+user.brothers[0] === user3.brothers[0]; // output :true
 ```
